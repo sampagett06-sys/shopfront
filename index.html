@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Shopfront Check | Website repair for small businesses</title>
+<meta name="description" content="Free website checks for small businesses. We find the faults that cost you customers and fix them for a fixed price. Evidence for every finding.">
+<link rel="canonical" href="https://shopfront.vercel.app/">
+<meta name="theme-color" content="#0b4a59" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#071216" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shopfront.vercel.app/">
+<meta property="og:title" content="The Shopfront Check - website repair for small businesses">
+<meta property="og:description" content="Free website checks for small businesses. We find the faults that cost you customers and fix them for a fixed price. Evidence for every finding.">
+<meta property="og:image" content="https://shopfront.vercel.app/og.png">
+<meta property="og:site_name" content="Shopfront">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Shopfront Check">
+<meta name="twitter:description" content="Free website checks for small businesses. We find the faults that cost you customers and fix them for a fixed price. Evidence for every finding.">
+<meta name="twitter:image" content="https://shopfront.vercel.app/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Shopfront",
+  "description": "Free website checks for small businesses. We find the faults that cost you customers and fix them for a fixed price. Evidence for every finding.",
+  "url": "https://shopfront.vercel.app/",
+  "email": "hello@shopfront.example",
+  "areaServed": "United Kingdom",
+  "priceRange": "$$",
+  "serviceType": "Website repair and maintenance for small businesses"
+}
+</script>
+
+<style>
+:root{
+  --paper:#eef1ef; --surface:#ffffff; --surface-2:#e5eae7; --sunk:#f6f8f7;
+  --ink:#111b1e; --ink-2:#46585d; --ink-3:#6f8489;
+  --rule:#d3dcd9; --rule-2:#e3e9e6;
+  --brand:#0b4a59; --brand-2:#116d7c; --accent:#1f95a8;
+  --fault:#b93a2b; --warn:#a96716; --pass:#2a7550;
+  --deep:#07303b; --deep-2:#0b3f4c; --deep-ink:#e6f2f4; --deep-ink-2:#9dc0c7;
+  --deep-rule:#144d5c; --cta-ink:#f2fbfc;
+  --disp:'Familjen Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#071216; --surface:#0d1e24; --surface-2:#14282f; --sunk:#0a1a20;
+    --ink:#e7f1f2; --ink-2:#9db2b7; --ink-3:#71888e;
+    --rule:#1d343b; --rule-2:#16292f;
+    --brand:#3fb0c2; --brand-2:#54c2d2; --accent:#4fc3d4;
+    --fault:#df6b5c; --warn:#d79f56; --pass:#5bb886;
+    --deep:#04191f; --deep-2:#082a34; --deep-ink:#e6f2f4; --deep-ink-2:#93b5bc;
+    --deep-rule:#123c48; --cta-ink:#04191f;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#071216; --surface:#0d1e24; --surface-2:#14282f; --sunk:#0a1a20;
+  --ink:#e7f1f2; --ink-2:#9db2b7; --ink-3:#71888e;
+  --rule:#1d343b; --rule-2:#16292f;
+  --brand:#3fb0c2; --brand-2:#54c2d2; --accent:#4fc3d4;
+  --fault:#df6b5c; --warn:#d79f56; --pass:#5bb886;
+  --deep:#04191f; --deep-2:#082a34; --deep-ink:#e6f2f4; --deep-ink-2:#93b5bc;
+  --deep-rule:#123c48; --cta-ink:#04191f;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--disp);letter-spacing:-.02em;text-wrap:balance;
+  font-weight:600;line-height:1.1}
+p{margin:0}
+a{color:var(--brand-2)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+.narrow{max-width:720px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;display:block}
+
+/* ---- header ---- */
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px);border-bottom:1px solid var(--rule)}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:20px;
+  height:62px;max-width:1080px;margin:0 auto;padding:0 26px}
+.mark{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-.03em;
+  display:flex;align-items:center;gap:9px;color:var(--ink);text-decoration:none}
+.mark i{width:11px;height:11px;background:var(--brand-2);border-radius:2px;
+  transform:rotate(45deg);display:block;flex:0 0 auto}
+nav{display:flex;gap:24px;align-items:center}
+nav a{font-family:var(--disp);font-size:14.5px;color:var(--ink-2);text-decoration:none;font-weight:500}
+nav a:hover{color:var(--ink)}
+@media(max-width:720px){nav a.hide{display:none}}
+
+.cta{font-family:var(--disp);font-weight:600;font-size:15px;text-decoration:none;
+  background:var(--brand);color:var(--cta-ink);padding:11px 19px;border-radius:2px;
+  display:inline-block;border:1px solid var(--brand);transition:background .18s,transform .18s}
+.cta:hover{background:var(--brand-2);transform:translateY(-1px)}
+.cta:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.cta.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.cta.ghost:hover{background:var(--surface-2);border-color:var(--ink-3)}
+
+/* ---- hero ---- */
+.hero{padding:74px 0 66px}
+.herogrid{display:grid;grid-template-columns:1.06fr .94fr;gap:52px;align-items:center}
+@media(max-width:900px){.herogrid{grid-template-columns:1fr;gap:38px}}
+.hero h1{font-size:clamp(40px,5.6vw,60px);font-weight:700;letter-spacing:-.035em;margin:14px 0 20px}
+.hero .lede{font-size:19.5px;color:var(--ink-2);max-width:34em;margin-bottom:28px}
+.herobtns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .fine{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:16px}
+
+/* ---- audit card ---- */
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  box-shadow:0 18px 44px -28px rgba(7,48,59,.42)}
+.card .ch{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:13px 18px;border-bottom:1px solid var(--rule-2);background:var(--sunk)}
+.card .ch .t{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3)}
+.card .ch .d{font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.cardtop{display:flex;gap:20px;align-items:center;padding:22px 20px 20px}
+.dial{position:relative;width:104px;height:104px;flex:0 0 auto}
+.dial svg{transform:rotate(-90deg);display:block}
+.dial .rd{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center}
+.dial .rd b{font-family:var(--mono);font-size:29px;font-weight:600;line-height:1;
+  color:var(--fault);letter-spacing:-.03em}
+.dial .rd span{font-family:var(--mono);font-size:9.5px;color:var(--ink-3);
+  letter-spacing:.09em;text-transform:uppercase;margin-top:4px}
+.verdict h3{font-size:19px;margin-bottom:5px}
+.verdict p{font-size:15px;color:var(--ink-2);line-height:1.5}
+.finds{border-top:1px solid var(--rule-2)}
+.find{display:flex;gap:12px;padding:12px 20px;border-bottom:1px solid var(--rule-2);
+  align-items:flex-start}
+.find:last-child{border-bottom:0}
+.sev{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;padding:3px 6px;border-radius:2px;flex:0 0 auto;margin-top:3px;min-width:58px;
+  text-align:center}
+.s-crit{background:color-mix(in srgb,var(--fault) 14%,transparent);color:var(--fault)}
+.s-high{background:color-mix(in srgb,var(--warn) 15%,transparent);color:var(--warn)}
+.find .ft{flex:1;min-width:0}
+.find .ft b{font-family:var(--disp);font-size:15px;font-weight:600;display:block}
+.find .ft code{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+  display:block;margin-top:3px;overflow-wrap:anywhere}
+
+/* ---- sections ---- */
+section{padding:78px 0}
+.band{background:var(--deep);color:var(--deep-ink)}
+.band h2,.band h3{color:var(--deep-ink)}
+.band p{color:var(--deep-ink-2)}
+.band .eyebrow{color:var(--deep-ink-2)}
+.shead{max-width:660px;margin-bottom:42px}
+.shead h2{font-size:clamp(29px,3.9vw,39px);margin:12px 0 15px;letter-spacing:-.028em}
+.shead p{font-size:18px;color:var(--ink-2)}
+.band .shead p{color:var(--deep-ink-2)}
+
+/* faults grid */
+.faults{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule)}
+.fault{background:var(--surface);padding:24px 24px 26px;display:flex;flex-direction:column;gap:9px}
+.fault .n{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em}
+.fault h3{font-size:18.5px}
+.fault p{font-size:15.5px;color:var(--ink-2);line-height:1.55}
+.fault .cost{font-family:var(--mono);font-size:12px;color:var(--fault);
+  border-top:1px dashed var(--rule);padding-top:10px;margin-top:auto}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid var(--deep-rule)}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{padding:28px 26px 30px;border-right:1px solid var(--deep-rule);
+  border-bottom:1px solid var(--deep-rule);display:flex;flex-direction:column;gap:10px}
+.step:last-child{border-right:0}
+.step .num{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.12em}
+.step h3{font-size:20px}
+.step p{font-size:15.5px;line-height:1.55}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule)}
+.tier{background:var(--surface);padding:26px 24px 28px;display:flex;flex-direction:column;gap:11px}
+.tier.hi{background:var(--sunk);position:relative}
+.tier.hi::before{content:"Most take this";position:absolute;top:0;left:0;right:0;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--brand);color:var(--cta-ink);padding:5px 0;text-align:center}
+.tier.hi{padding-top:44px}
+.tier .tn{font-family:var(--disp);font-size:17px;font-weight:600}
+.tier .tp{font-family:var(--mono);font-size:33px;font-weight:600;letter-spacing:-.04em;
+  color:var(--brand-2);line-height:1}
+.tier .tp small{font-size:13px;font-weight:400;color:var(--ink-3);letter-spacing:0}
+.tier ul{margin:0;padding-left:17px;display:flex;flex-direction:column;gap:6px}
+.tier li{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+
+/* honesty */
+.hon{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+.honitem{display:flex;gap:14px;align-items:flex-start}
+.honitem .x{font-family:var(--mono);font-size:17px;color:var(--fault);flex:0 0 auto;
+  line-height:1.3;font-weight:600}
+.honitem .y{font-family:var(--mono);font-size:17px;color:var(--pass);flex:0 0 auto;
+  line-height:1.3;font-weight:600}
+.honitem h3{font-size:17px;margin-bottom:4px}
+.honitem p{font-size:15.5px;color:var(--ink-2);line-height:1.55}
+
+/* report showcase */
+.showgrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:46px;align-items:center}
+@media(max-width:900px){.showgrid{grid-template-columns:1fr;gap:34px}}
+.evid{background:var(--sunk);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;
+  display:flex;flex-direction:column;gap:14px}
+.evrow{display:flex;flex-direction:column;gap:5px}
+.evrow .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.evrow .v{font-size:15.5px;color:var(--ink-2);line-height:1.5}
+.evrow .v.code{display:block;font-family:var(--mono);font-size:12.5px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule-2);padding:9px 11px;border-radius:2px;
+  overflow-wrap:anywhere}
+
+/* final cta */
+.final{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.final h2{font-size:clamp(30px,4.4vw,44px);letter-spacing:-.03em;max-width:16ch}
+.final p{font-size:18px;max-width:46ch}
+
+footer{border-top:1px solid var(--rule);padding:34px 0 44px;color:var(--ink-3);font-size:14px}
+.frow{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:flex-start}
+footer p{max-width:52ch;line-height:1.6}
+
+/* ---- reveal: default state is VISIBLE; JS opts in ---- */
+.anim .reveal:not(.in){opacity:0;transform:translateY(16px)}
+.anim .reveal{transition:opacity .62s ease,transform .62s cubic-bezier(.22,.7,.3,1)}
+.anim .stg > *{transition:opacity .5s ease,transform .5s cubic-bezier(.22,.7,.3,1)}
+.anim .stg:not(.in) > *{opacity:0;transform:translateY(11px)}
+.anim .stg.in > *:nth-child(1){transition-delay:.05s}
+.anim .stg.in > *:nth-child(2){transition-delay:.13s}
+.anim .stg.in > *:nth-child(3){transition-delay:.21s}
+.anim .stg.in > *:nth-child(4){transition-delay:.29s}
+.anim .stg.in > *:nth-child(5){transition-delay:.37s}
+.anim #ring{transition:stroke-dashoffset 1.5s cubic-bezier(.2,.75,.3,1)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .anim .reveal:not(.in),.anim .stg:not(.in) > *{opacity:1;transform:none}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="hbar">
+    <a class="mark" href="#top"><i aria-hidden="true"></i>Shopfront</a>
+    <nav>
+      <a class="hide" href="#checks">What we check</a>
+      <a class="hide" href="#how">How it works</a>
+      <a class="hide" href="#pricing">Pricing</a>
+      <a class="cta" href="#get">Get a free check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap herogrid">
+      <div>
+        <span class="eyebrow">Website repair for small businesses</span>
+        <h1>Your website is your shopfront. It might be turning people away.</h1>
+        <p class="lede">Most small business sites have two or three faults the owner has
+          never seen — a security warning on phones, a number that can't be tapped, a
+          contact page that leads nowhere. We find them, show you the evidence, and fix
+          the ones that matter.</p>
+        <div class="herobtns">
+          <a class="cta" href="#get">Get a free check</a>
+          <a class="cta ghost" href="#checks">See what we look for</a>
+        </div>
+        <p class="fine">No sign-up. No card. The report is yours whether or not you hire us.</p>
+      </div>
+
+      <div class="card reveal" id="demo">
+        <div class="ch"><span class="t">Example check</span><span class="d">halsteadplumbing.example</span></div>
+        <div class="cardtop">
+          <div class="dial">
+            <svg width="104" height="104" viewBox="0 0 104 104" aria-hidden="true">
+              <circle cx="52" cy="52" r="45" fill="none" stroke="var(--surface-2)" stroke-width="10"/>
+              <circle id="ring" cx="52" cy="52" r="45" fill="none" stroke="var(--fault)"
+                      stroke-width="10" stroke-linecap="round"
+                      stroke-dasharray="282.7" stroke-dashoffset="203.5"/>
+            </svg>
+            <div class="rd"><b id="scoreN">28</b><span>out of 100</span></div>
+          </div>
+          <div class="verdict">
+            <h3>Needs urgent attention</h3>
+            <p>Three faults are stopping people buying before they reach the contact
+              details. None are expensive to put right.</p>
+          </div>
+        </div>
+        <div class="finds stg" id="finds">
+          <div class="find"><span class="sev s-crit">Critical</span><div class="ft">
+            <b>Site is not secure</b><code>Chrome shows "Not Secure" before the page loads</code></div></div>
+          <div class="find"><span class="sev s-crit">Critical</span><div class="ft">
+            <b>Not built for mobile phones</b><code>No viewport tag — text unreadable without pinching</code></div></div>
+          <div class="find"><span class="sev s-high">Important</span><div class="ft">
+            <b>Phone number can't be tapped</b><code>01632 960344 appears as plain text, no tel: link</code></div></div>
+          <div class="find"><span class="sev s-high">Important</span><div class="ft">
+            <b>Invisible to Google's local listings</b><code>No LocalBusiness data — hours and reviews don't show</code></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="checks">
+    <div class="wrap">
+      <div class="shead reveal">
+        <span class="eyebrow">What we check</span>
+        <h2>Faults that cost you customers, not points on a scorecard</h2>
+        <p>We only report things that plausibly lose you business, and we show you the
+          evidence for each one so you can check our working.</p>
+      </div>
+      <div class="faults reveal">
+        <div class="fault">
+          <span class="n">01</span><h3>The security warning</h3>
+          <p>Without a certificate, every browser puts "Not Secure" beside your address,
+            and warns again when someone types into a form.</p>
+          <span class="cost">Seen before a word is read</span>
+        </div>
+        <div class="fault">
+          <span class="n">02</span><h3>Unusable on a phone</h3>
+          <p>The desktop layout renders zoomed out. Visitors pinch, drag sideways to read
+            a sentence, and most give up.</p>
+          <span class="cost">Most local searches are on a phone</span>
+        </div>
+        <div class="fault">
+          <span class="n">03</span><h3>A number nobody can tap</h3>
+          <p>If the phone number isn't a link, a mobile visitor has to memorise it, leave
+            your site and retype it into the dialler.</p>
+          <span class="cost">The most expensive fault we find</span>
+        </div>
+        <div class="fault">
+          <span class="n">04</span><h3>Slow to load</h3>
+          <p>Past two seconds people start leaving. Past five, most already have — and
+            Google counts it against you as well.</p>
+          <span class="cost">Compounds on mobile data</span>
+        </div>
+        <div class="fault">
+          <span class="n">05</span><h3>Missing from Google's local listings</h3>
+          <p>Without structured data your hours, address and reviews don't appear in
+            results. Competitors get a listing twice the size.</p>
+          <span class="cost">You're a plain blue link</span>
+        </div>
+        <div class="fault">
+          <span class="n">06</span><h3>Dead links and stale footers</h3>
+          <p>Broken pages and a copyright line from three years ago read as "this business
+            may not exist anymore".</p>
+          <span class="cost">Quietly kills trust</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="how">
+    <div class="wrap">
+      <div class="shead reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>Three steps, and the first two are free</h2>
+        <p>You find out what's wrong with your site whether or not you ever pay us
+          anything. That's the whole offer.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="num">STEP ONE</span><h3>We check your site</h3>
+          <p>We read your homepage exactly the way a browser and Google do. Nothing is
+            logged into, submitted or changed — it's the same request any visitor makes.</p>
+        </div>
+        <div class="step">
+          <span class="num">STEP TWO</span><h3>You get the report</h3>
+          <p>Plain English, every finding quoting the evidence behind it, with the fix
+            spelled out. Hand it to whoever looks after your site and they can verify the
+            lot in a minute.</p>
+        </div>
+        <div class="step">
+          <span class="num">STEP THREE</span><h3>We fix what matters</h3>
+          <p>Only if you want us to. The urgent faults are usually a day's work. We
+            re-check afterwards so the improvement is on paper.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap showgrid">
+      <div class="reveal">
+        <span class="eyebrow">The report</span>
+        <h2 style="font-size:clamp(28px,3.7vw,37px);margin:12px 0 16px;letter-spacing:-.028em">
+          Every claim shows its working</h2>
+        <p style="font-size:17.5px;color:var(--ink-2);margin-bottom:18px">Most "free website
+          audits" are a sales pitch with a number on the front. Ours quotes the exact
+          evidence for each fault, because a report you can't verify is worth nothing —
+          and because your own developer should be able to act on it without us.</p>
+        <p style="font-size:17.5px;color:var(--ink-2)">It also states its own limits. We
+          check one page, from one location, at one moment. We say so in the footer rather
+          than pretending otherwise.</p>
+      </div>
+      <div class="evid reveal">
+        <div class="evrow"><span class="k">The finding</span>
+          <span class="v">Phone number cannot be tapped on a phone</span></div>
+        <div class="evrow"><span class="k">What we found</span>
+          <code class="v code">Number '01632 960344' appears as plain text with no tel: link.</code></div>
+        <div class="evrow"><span class="k">Why it costs you</span>
+          <span class="v">A mobile visitor has to memorise the number, leave the site, open
+            the dialler and retype it. Many won't bother. For a business that wins
+            customers by phone, this is the most expensive item on the list.</span></div>
+        <div class="evrow"><span class="k">The fix</span>
+          <span class="v">Wrap every phone number in a tel: link. About 20 minutes.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="background:var(--sunk);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+    <div class="wrap">
+      <div class="shead reveal">
+        <span class="eyebrow">Pricing</span>
+        <h2>Fixed prices, quoted before we start</h2>
+        <p>No hourly billing, no retainer you can't leave, no invoice that arrives bigger
+          than expected.</p>
+      </div>
+      <div class="tiers reveal">
+        <div class="tier">
+          <span class="tn">The check</span><span class="tp">Free</span>
+          <ul><li>Full report on your homepage</li><li>Evidence for every finding</li>
+            <li>The fix list, spelled out</li><li>Yours to keep either way</li></ul>
+        </div>
+        <div class="tier hi">
+          <span class="tn">Urgent fixes</span><span class="tp">$150</span>
+          <ul><li>Everything marked critical</li><li>Certificate and mobile layout</li>
+            <li>Tappable phone, dead links</li><li>Usually done inside a day</li></ul>
+        </div>
+        <div class="tier">
+          <span class="tn">Everything cleared</span><span class="tp">$400</span>
+          <ul><li>The whole report resolved</li><li>Search visibility and speed</li>
+            <li>Google local listing data</li><li>Re-checked and re-scored</li></ul>
+        </div>
+        <div class="tier">
+          <span class="tn">Kept working</span><span class="tp">$40<small>/mo</small></span>
+          <ul><li>Monthly re-check</li><li>Certificate expiry watch</li>
+            <li>Dead links caught early</li><li>Cancel whenever</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="shead reveal">
+        <span class="eyebrow">Straight answers</span>
+        <h2>What we don't do</h2>
+        <p>This trade has a reputation, largely earned. Here's what we've ruled out.</p>
+      </div>
+      <div class="hon reveal">
+        <div class="honitem"><span class="x">&times;</span><div>
+          <h3>No made-up urgency</h3>
+          <p>We won't tell you Google is about to delist you. If a fault isn't costing you
+            anything, we mark it minor and say so.</p></div></div>
+        <div class="honitem"><span class="x">&times;</span><div>
+          <h3>No monthly SEO retainer</h3>
+          <p>We fix specific, named faults for a fixed price. We don't sell an open-ended
+            subscription against vague promises.</p></div></div>
+        <div class="honitem"><span class="x">&times;</span><div>
+          <h3>No holding your site hostage</h3>
+          <p>Your domain, hosting and accounts stay yours. Everything we change is handed
+            over documented.</p></div></div>
+        <div class="honitem"><span class="y">&check;</span><div>
+          <h3>We'll tell you to do nothing</h3>
+          <p>If your site checks out clean, the report says so and we go away. That happens
+            and we'd rather say it than invent work.</p></div></div>
+        <div class="honitem"><span class="y">&check;</span><div>
+          <h3>Your developer can use our report</h3>
+          <p>It's written so anyone competent can act on it. If you've already got someone,
+            hand it to them — no charge.</p></div></div>
+        <div class="honitem"><span class="y">&check;</span><div>
+          <h3>We show the evidence</h3>
+          <p>Every finding quotes what we actually saw, so nothing rests on you taking our
+            word for it.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="get">
+    <div class="wrap final reveal">
+      <span class="eyebrow">Get a free check</span>
+      <h2>Send us your web address. That's the whole form.</h2>
+      <p>We'll check it and send the report back. No sign-up, no card, no follow-up
+        sequence — one reply with your results in it.</p>
+      <a class="cta" style="background:var(--accent);border-color:var(--accent);color:var(--cta-ink);font-size:16.5px;padding:14px 26px"
+         href="mailto:hello@shopfront.example?subject=Free%20website%20check&body=My%20website%20address%3A%20%0A%0AMy%20name%3A%20%0A">
+        Email us your address</a>
+      <p style="font-family:var(--mono);font-size:12.5px">Or reply to the check we already sent you.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <div>
+      <a class="mark" href="#top" style="margin-bottom:10px"><i aria-hidden="true"></i>Shopfront</a>
+      <p>Website repair for small businesses. Fixed prices, plain English, evidence for
+        everything we tell you.</p>
+    </div>
+    <p style="font-family:var(--mono);font-size:12px">Checks are read-only. We never log in,<br>
+      submit forms, or change anything on your site.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return; // page is already at rest
+
+  var targets = [].slice.call(document.querySelectorAll(".reveal, .stg"));
+
+  // Anything already on screen is marked done BEFORE animation is switched on,
+  // so the first frame is never blank.
+  var fold = window.innerHeight * 0.92;
+  targets.forEach(function (el) {
+    if (el.getBoundingClientRect().top < fold) el.classList.add("in");
+  });
+  document.documentElement.classList.add("anim");
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("in");
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+
+  targets.forEach(function (el) { if (!el.classList.contains("in")) io.observe(el); });
+
+  // The dial draws itself, and the score counts down to it.
+  var ring = document.getElementById("ring");
+  var scoreN = document.getElementById("scoreN");
+  var demo = document.getElementById("demo");
+  if (!ring || !scoreN || !demo) return;
+
+  var CIRC = 282.7, TARGET = 28;
+  var settled = false;
+
+  function draw() {
+    if (settled) return;
+    settled = true;
+    ring.style.strokeDashoffset = CIRC;                 // start empty
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        ring.style.strokeDashoffset = CIRC * (1 - TARGET / 100);
+      });
+    });
+    var t0 = null, DUR = 1500;
+    function tick(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / DUR);
+      var eased = 1 - Math.pow(1 - p, 3);
+      scoreN.textContent = Math.round(eased * TARGET);
+      if (p < 1) requestAnimationFrame(tick);
+      else scoreN.textContent = TARGET;
+    }
+    scoreN.textContent = "0";
+    requestAnimationFrame(tick);
+  }
+
+  var dio = new IntersectionObserver(function (entries) {
+    if (entries.some(function (e) { return e.isIntersecting; })) { draw(); dio.disconnect(); }
+  }, { threshold: 0.35 });
+  dio.observe(demo);
+})();
+</script>
+</body>
+</html>
