@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shopfront.vercel.app/sitemap.xml
+Sitemap: https://shopfront-repair.vercel.app/sitemap.xml
